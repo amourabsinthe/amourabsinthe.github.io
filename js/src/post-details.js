@@ -73,7 +73,8 @@ $(document).ready(function () {
   $('.post-toc a').on('click', function (e) {
     e.preventDefault();
     var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
-    var offset = $(targetSelector).offset().top;
+    targetSelector = decodeURI(this.getAttribute('href'))
+	var offset = $(targetSelector).offset().top;
 
     hasVelocity ?
       html.velocity('stop').velocity('scroll', {
